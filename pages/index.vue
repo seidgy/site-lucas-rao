@@ -42,6 +42,28 @@
       </div>
       <div class="historia__gradient"></div>
     </section>
+    <section class="base-color | local">
+      <div class="title-div title-div--right">
+        <div class="title-div__spacer"></div>
+        <div class="grid">
+          <h2 class="title">
+            <img src="/images/evento.png" alt="Evento" class="title__image" />
+          </h2>
+        </div>
+        <div class="title-div__spacer">
+          <span class="thin-line thin-line--right"></span> 
+        </div>
+      </div>
+      <div class="grid local__mapa">
+        <div class="local___container">
+          <h3 class="subtitle">Cerimônia</h3>
+          <p class="text | local__text">Ahadu Eventos - Quadra 110 Norte Alameda 5, 13 - Plano Diretor Norte, Palmas - TO</p>
+        </div>
+        <div class="local__google-maps">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15707.964128898315!2d-48.3077735!3d-10.1813831!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf64b16f231f3b9e0!2sAhadu%20Eventos!5e0!3m2!1spt-BR!2sbr!4v1649075973548!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -156,4 +178,21 @@ export default {
         background-image: linear-gradient(to top, $main-color 5% , rgba(0,0,0,0) 100%);
       }
     }
+
+  .local {
+    padding: 100px 0 200px;
+  }
+
+    .local__mapa {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+
+      .local__container {
+        flex-grow: 1;
+      }
+
+      .local__google-maps {
+        margin-left: 32px;
+      }
 </style>

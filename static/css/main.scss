@@ -176,6 +176,12 @@ a:focus {
     flex-flow: row nowrap;
 }
 
+    .title-div--right {
+        .title {
+            text-align: right;
+        }
+    }
+
     .title-div__spacer {
         flex-grow: 1;
         flex-shrink: 1;
@@ -219,4 +225,11 @@ a:focus {
 
 .title__image {
     height: 200px;
+}
+
+.subtitle {
+    font-size: 2em;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 32px;
 }
