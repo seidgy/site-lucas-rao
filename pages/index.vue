@@ -17,12 +17,12 @@
     <section class="base-color | rsvp">
       <div class="grid">
         <p class="text">Seja bem-vindo ao site do nosso grande dia!  Aqui você encontrará  todas as informações do evento. É um grande prazer compartilhar esse momento com você!</p>
-        <div class="button-container button-container--spaced">
+        <div class="button-container button-container--spaced" id="confirme">
           <a href="#" class="button">Confirme sua presença</a>
         </div>
       </div>
     </section>
-    <section class="base-color | historia">
+    <section class="base-color | historia" id="historia">
       <div class="title-div title-div--left">
         <div class="title-div__spacer">
           <span class="thin-line thin-line--left"></span>
@@ -35,14 +35,14 @@
         <div class="title-div__spacer"></div>
       </div>
       <div class="grid">
-        <p class="text | historia__text">Era dia 01 de novembro de 2018, quando nossos caminhos se cruzaram e passamos a caminhar na mesma direção. Um relacionamento moldado a distância, que começou em 800km e depois se tornou 1400 km, para agora estarmos aqui, lado a lado. Deixamos tudo ir acontecendo da forma mais natural, sempre pautado na confiança, cumplicidade, intimidade e claro... o amor.</p>
+        <p class="text | historia__text">Era dia 01 de novembro de 2018, quando esses dois caminhos se cruzaram naquela tarde chuvosa em Palmas-TO em que, apesar do tempo, saíram para tomar sorvete, sob pretexto de se conhecerem melhor. Não imaginavam que ali, começaria uma história que já conta mais de 3 anos. Um relacionamento moldado a distância, pois um morava em Palmas, enquanto outro já havia ido embora para Brasília há 7 meses, pois tinha passado em um concurso. Sem contar nesse meio tempo,  que após a sua formatura, Lucas ainda foi passar uma temporada em Imperatriz-MA, perto dos seus familiares. Mas que agora estão aqui, lado a lado, para seguir essa história, que apesar de todas as adversidades, foi sendo construída com base na confiança, cumplicidade, intimidade e claro... o amor.</p>
       </div>
       <div class="historia__spacer">
         <span class="thick-line thick-line--right"></span>
       </div>
       <div class="historia__gradient"></div>
     </section>
-    <section class="base-color | local">
+    <section class="base-color | local" id="local">
       <div class="title-div title-div--right">
         <div class="title-div__spacer"></div>
         <div class="grid">
@@ -145,7 +145,7 @@ export default {
     }
 
     .historia__text {
-      width: 80%;
+      width: 75%;
       text-align: right;
       margin-top: 90px;
       margin-left: auto;
