@@ -18,7 +18,18 @@
       <div class="grid">
         <p class="text">Seja bem-vindo ao site do nosso grande dia!  Aqui você encontrará  todas as informações do evento. É um grande prazer compartilhar esse momento com você!</p>
         <div class="button-container button-container--spaced" id="confirme">
-          <a href="#" class="button">Confirme sua presença</a>
+          <a href="#" class="button" @click.prevent="presenca = !presenca">Confirme sua presença</a>
+        </div>
+        <div class="form-container" :class="{'form-container--show': presenca}">
+          <p class="alert" id="alert" role="alert"></p>
+          <form id="form-presenca" class="form form--default | form-presenca">
+            <input type="email" name="e-mail" id="input-01" placeholder="Seu e-mail (opcional)" @change="resetMessage()">
+            <input type="text" name="telefone" id="input-02" placeholder="Seu telefone" @change="resetMessage()">
+            <textarea name="nomes" id="input-03" placeholder="Seu nome e o de seus convidados" @change="resetMessage()"></textarea>
+            <div class="buttons">
+              <input type="submit" class="button" name="" value="Enviar" @click.prevent="sendForm()">
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -70,7 +81,37 @@
 <script>
 export default {
   layout: 'main',
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data() {
+    return {
+      presenca: false
+    }
+  },
+  methods: {
+    async sendForm() {
+      const myForm = document.getElementById("form-presenca");
+      const alert = document.getElementById('alert');
+      let params = new FormData(myForm);
+      this.$contact.send('https://formspree.io/f/mzbojzwd', params).then(ret => {
+        alert.classList.remove('alert--failure');
+        alert.classList.add('alert--success');
+        alert.innerHTML = "Obrigado pela confirmação. Nos vemos lá!";
+        myForm.reset();
+      }).catch(err=>{
+        alert.classList.remove('alert--success');
+        alert.classList.add('alert--failure');
+        alert.innerHTML = "Ops, algo deu errado. Por favor tente novamente.";
+        myForm.reset();
+        console.log('ERROR -> ',err)
+      })
+    },
+    resetMessage() {
+      const alert = document.getElementById('alert');
+      alert.classList.remove('alert--failure');
+      alert.classList.remove('alert--success');
+      alert.innerHTML = "";
+    }
+  },
 }
 </script>
 
@@ -195,4 +236,21 @@ export default {
       .local__google-maps {
         margin-left: 32px;
       }
+
+  .form-container {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+  }
+
+    .form-container--show {
+      max-height: 550px;
+    }
+
+  .form-presenca {
+    height: 500px;
+    textarea {
+      flex-grow: 1;
+    }
+  }
 </style>
