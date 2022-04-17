@@ -66,6 +66,7 @@ p {
 body {
     font-size: 1em;
     line-height: initial;
+    background-color: $main-color;
 }
 
 a, a:visited, a:active, a:hover, a:focus {
@@ -129,6 +130,9 @@ a:focus {
 .text {
     font-weight: 300;
     font-size: 1.5em;
+    @include sm {
+        font-size: 1.2em;
+    }
 }
 
 .button-container {
@@ -146,6 +150,9 @@ a:focus {
         width: 300px;
         height: 2px;
         transition: width 0.5s ease-in-out;
+        @include sm {
+            width: 30px;
+        }
     }
     &::before {
         left: 0;
@@ -173,6 +180,11 @@ a:focus {
     border: 2px solid $font-color;
     border-radius: 30px;
     background-color: hsla(var(--main-hsl), 0.2);
+    @include sm {
+        font-size: 1.2em;
+        padding: 15px 30px;
+        border-radius: 10px;
+    }
 }
 
 .title-div {
@@ -229,6 +241,10 @@ a:focus {
 
 .title__image {
     height: 200px;
+    @include sm {
+        height: 130px;
+        max-width: 100%;
+    }
 }
 
 .subtitle {

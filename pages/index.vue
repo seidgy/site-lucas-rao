@@ -15,9 +15,9 @@
       <div class="bottom-gradient"></div>
     </section>
     <section class="base-color | rsvp">
-      <div class="grid">
+      <div class="grid" id="confirme">
         <p class="text">Seja bem-vindo ao site do nosso grande dia!  Aqui você encontrará  todas as informações do evento. É um grande prazer compartilhar esse momento com você!</p>
-        <div class="button-container button-container--spaced" id="confirme">
+        <div class="button-container button-container--spaced">
           <a href="#" class="button" @click.prevent="presenca = !presenca">Confirme sua presença</a>
         </div>
         <div class="form-container" :class="{'form-container--show': presenca}">
@@ -56,7 +56,7 @@
     <section class="base-color | local" id="local">
       <div class="title-div title-div--right">
         <div class="title-div__spacer"></div>
-        <div class="grid">
+        <div class="grid | title-grid">
           <h2 class="title">
             <img src="/images/evento.png" alt="Evento" class="title__image" />
           </h2>
@@ -65,14 +65,38 @@
           <span class="thin-line thin-line--right"></span> 
         </div>
       </div>
-      <div class="grid local__mapa">
+      <div class="grid | local__mapa">
         <div class="local___container">
           <h3 class="subtitle">Cerimônia</h3>
+          <p class="text | local__text">No dia 09 de julho de 2022 às 17h00</p>
           <p class="text | local__text">Ahadu Eventos - Quadra 110 Norte Alameda 5, 13 - Plano Diretor Norte, Palmas - TO</p>
         </div>
         <div class="local__google-maps">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15707.964128898315!2d-48.3077735!3d-10.1813831!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf64b16f231f3b9e0!2sAhadu%20Eventos!5e0!3m2!1spt-BR!2sbr!4v1649075973548!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15707.964128898315!2d-48.3077735!3d-10.1813831!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf64b16f231f3b9e0!2sAhadu%20Eventos!5e0!3m2!1spt-BR!2sbr!4v1649075973548!5m2!1spt-BR!2sbr" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+      </div>
+      <div class="grid | local__mapa local__mapa--inverted">
+        <div class="local__imagem">
+          <img src="/images/hotel.jpg" alt="Hotel">
+        </div>
+        <div class="local___container local__container--right">
+          <h3 class="subtitle">Sugestão de hospedagem</h3>
+          <p class="text | local__text">Conseguimos um desconto para nossos queridos convidados!</p>
+          <p class="text | local__text">Carvalho's Hotel - Quadra 103 Sul, Rua de Pedestre SO, 01 - Plano Diretor Sul, 77015-014</p>
+        </div>
+      </div>
+    </section>
+    <section class="base-color | presentes" id="presentes">
+      <div class="title-div title-div--left">
+        <div class="title-div__spacer">
+          <span class="thin-line thin-line--left"></span>
+        </div>
+        <div class="grid">
+          <h2 class="title">
+            <img src="/images/presentes.png" alt="Presentes" class="title__image" />
+          </h2>
+        </div>
+        <div class="title-div__spacer"></div>
       </div>
     </section>
   </div>
@@ -127,12 +151,20 @@ export default {
     background-size: auto 130%;
     background-position: top right;
     background-repeat: no-repeat;
+    @include sm {
+      background-size: auto 50%;
+      background-position: 95% 100%;
+    }
+
   }
 
   .header-gradient {
     height: 100%;
     width: 100%;
     background-image: linear-gradient(to right, $main-color 35% , rgba(0,0,0,0) 45%,rgba(0,0,0,0) 100%);
+    @include sm {
+      background-image: linear-gradient(to bottom, $main-color 50% , rgba(0,0,0,0) 65%,rgba(0,0,0,0) 100%);
+    }
   }
 
   .bottom-gradient {
@@ -142,6 +174,10 @@ export default {
     right: 0;
     height: 25vh;
     background-image: linear-gradient(to top, $main-color 5% , rgba(0,0,0,0) 100%);
+    @include sm {
+      bottom: -1px;
+      height: 15vh;
+    }
   }
 
   .main-logo {
@@ -150,6 +186,12 @@ export default {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+    @include sm {
+      width: 80%;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
     .main-logo__image {
@@ -167,6 +209,9 @@ export default {
         padding: 0 16px;
         &:first-child {
           border-right: 1px solid $font-color;
+        }
+        @include sm {
+          font-size: 1.2em;
         }
       }
     }
@@ -190,6 +235,11 @@ export default {
       text-align: right;
       margin-top: 90px;
       margin-left: auto;
+      @include sm {
+        width: 95%;
+        text-align: left;
+        margin-left: 0;
+      }
     }
 
     .historia__gradient {
@@ -218,23 +268,70 @@ export default {
         height: 25%;
         background-image: linear-gradient(to top, $main-color 5% , rgba(0,0,0,0) 100%);
       }
+      @include sm {
+        height: 200px;
+      }
     }
 
   .local {
     padding: 100px 0 200px;
+    .grid:not(.title-grid) {
+      padding-bottom: 124px;
+    }
   }
 
     .local__mapa {
       display: flex;
       flex-flow: row nowrap;
+      @include sm {
+        flex-direction: column;
+      }
     }
+
+      .local__mapa--inverted {
+        @include sm {
+          flex-direction: column-reverse;
+        }
+      }
 
       .local__container {
         flex-grow: 1;
       }
 
+        .local__container--right {
+          width: 600px;
+          flex-shrink: 0;
+          @include sm {
+            width: 100%;
+          }
+        }
+
       .local__google-maps {
         margin-left: 32px;
+        @include sm {
+          margin: 32px 0 0 0;
+        }
+        iframe {
+          width: 600px;
+          @include sm {
+            width: 100%;
+          }
+        }
+      }
+
+      .local__text {
+        margin-bottom: 15px;
+      }
+
+      .local__imagem {
+        margin-right: 32px;
+        flex-shrink: 1;
+        @include sm {
+          margin: 32px 0 0 0;
+        }
+        img {
+          width: 100%;
+        }
       }
 
   .form-container {

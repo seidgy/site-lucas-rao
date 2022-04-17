@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav">
+  <nav class="nav | not-mobile">
     <div class="grid">
         <ul class="nav__menu | menu">
           <li class="menu__item"><a href="#" @click.prevent="goTo('confirme')">Confirme sua presença</a></li>
@@ -19,7 +19,8 @@ export default {
       const el = document.querySelector('#'+id);
       if (el) {
         const distance = el.getBoundingClientRect().top+window.scrollY;
-        window.scrollTo( 0, (distance-100) );
+        el.scrollIntoView();
+        //window.scrollTo( 0, (distance-100) );
       }
     }
   }
