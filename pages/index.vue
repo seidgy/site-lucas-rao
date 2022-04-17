@@ -98,6 +98,18 @@
         </div>
         <div class="title-div__spacer"></div>
       </div>
+      <div class="grid | presentes__info">
+        <p class="text text--margin">Querido(a) convidado(a),</p>
+        <p class="text text--margin">Caso queira nos presentear, gostaríamos que este fosse convertido em espécie. Mas saiba que o nosso maior presente é ter a sua presença.</p>
+        <p class="text text--margin">Haverá uma urna na recepção do casamento, você pode utilizar este envelope, ou se preferir pode depositar:</p>
+        <div class="presentes__banco">
+          <p class="text text--highlight">Banco do Bradesco</p>
+          <p class="text text--highlight">Agência: 2918</p>
+          <p class="text text--highlight">CC: 25375-8</p>
+          <p class="text text--highlight">Pix: raony14@gmail.com</p>
+          <p class="text text--highlight">Favorecido: Raony Pereira dos Santos</p>
+        </div>
+      </div>
     </section>
   </div>
 </template>
@@ -274,7 +286,7 @@ export default {
     }
 
   .local {
-    padding: 100px 0 200px;
+    padding: 100px 0 0;
     .grid:not(.title-grid) {
       padding-bottom: 124px;
     }
@@ -349,5 +361,18 @@ export default {
     textarea {
       flex-grow: 1;
     }
+  }
+
+.presentes {
+  padding-bottom: 100px;
+}
+
+  .presentes__info {
+    margin-top: 64px;
+    text-align: center;
+  }
+
+  .presentes__info .text--margin {
+    margin-bottom: 32px
   }
 </style>

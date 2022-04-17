@@ -5,8 +5,8 @@
           <li class="menu__item"><a href="#" @click.prevent="goTo('confirme')">Confirme sua presença</a></li>
           <li class="menu__item"><a href="#" @click.prevent="goTo('historia')">Nossa história</a></li>
           <li class="menu__item"><a href="#" @click.prevent="goTo('local')">Informações</a></li>
-          <li class="menu__item"><a href="#" @click.prevent="goTo('confirme')">Presentes</a></li>
-          <li class="menu__item"><a href="#" @click.prevent="goTo('confirme')">Nos deixe uma mensagem</a></li>
+          <li class="menu__item"><a href="#" @click.prevent="goTo('presentes')">Presentes</a></li>
+          <!--<li class="menu__item"><a href="#" @click.prevent="goTo('confirme')">Nos deixe uma mensagem</a></li>-->
         </ul>
         <button class="nav-trigger | mobile-only" @click="active = !active">
           <menu-trigger :active="active" />
