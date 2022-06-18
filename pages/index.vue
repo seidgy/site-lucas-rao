@@ -103,14 +103,28 @@
         <p class="text text--margin">Caso queira nos presentear, gostaríamos que este fosse convertido em espécie. Mas saiba que o nosso maior presente é ter a sua presença.</p>
         <p class="text text--margin">Haverá uma urna na recepção do casamento, você pode utilizar este envelope, ou se preferir pode depositar:</p>
         <div class="presentes__banco">
-          <p class="text text--highlight">Banco do Bradesco</p>
-          <p class="text text--highlight">Agência: 2918</p>
-          <p class="text text--highlight">CC: 25375-8</p>
-          <p class="text text--highlight">Pix: raony14@gmail.com</p>
           <p class="text text--highlight">Favorecido: Raony Pereira dos Santos</p>
+          <div class="presentes__container">
+            <div class="presentes__cc">
+              <p class="text text--highlight">Banco do Bradesco</p>
+              <p class="text text--highlight">Agência: 2918</p>
+              <p class="text text--highlight">CC: 25375-8</p>
+            </div>
+            <div class="presentes__pix">
+              <p class="text text--highlight">Pix: raony14@gmail.com</p>
+              <img class="presentes__qr-code" src="/images/qr-code.jpg" alt="QR-Code Pix" aria-hidden="true">
+            </div>
+          </div>
         </div>
       </div>
     </section>
+    <div class="audio-player">
+      <p>Escute aqui a nossa música e já vai se ambientando para o grande dia.</p>
+      <audio controls>
+        <source src="/audio/music.mp3" type="audio/mpeg">
+        Seu navegar não tem suporte para tocar áudio.
+      </audio>
+    </div>
   </div>
 </template>
 
@@ -160,12 +174,12 @@ export default {
     width: 100%;
     background-color: $main-color;
     background-image: url('/images/header-bg.jpg');
-    background-size: auto 130%;
+    background-size: auto 100%;
     background-position: top right;
     background-repeat: no-repeat;
     @include sm {
       background-size: auto 50%;
-      background-position: 95% 100%;
+      background-position: center 100%;
     }
 
   }
@@ -173,7 +187,7 @@ export default {
   .header-gradient {
     height: 100%;
     width: 100%;
-    background-image: linear-gradient(to right, $main-color 35% , rgba(0,0,0,0) 45%,rgba(0,0,0,0) 100%);
+    background-image: linear-gradient(to right, $main-color 55% , rgba(0,0,0,0) 65%,rgba(0,0,0,0) 100%);
     @include sm {
       background-image: linear-gradient(to bottom, $main-color 50% , rgba(0,0,0,0) 65%,rgba(0,0,0,0) 100%);
     }
@@ -257,7 +271,7 @@ export default {
     .historia__gradient {
       background-image: url('/images/history-bg.jpg');
       background-size: cover;
-      background-position: top center;
+      background-position: center;
       display: block;
       width: 100%;
       height: 900px;
@@ -364,7 +378,7 @@ export default {
   }
 
 .presentes {
-  padding-bottom: 100px;
+  padding-bottom: 200px;
 }
 
   .presentes__info {
@@ -374,5 +388,55 @@ export default {
 
   .presentes__info .text--margin {
     margin-bottom: 32px
+  }
+
+  .presentes__container {
+    margin-top: 32px;
+    text-align: left;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    @include sm {
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+  }
+
+  .presentes__cc {
+    margin-right: 24px;
+    @include sm {
+      margin: 0 0 24px 0;
+      width: 300px;
+    }
+  }
+
+  .presentes__pix {
+    margin-left: 24px;
+    @include sm {
+      margin: 0;
+    }
+  }
+
+  .presentes__qr-code {
+    width: 300px;
+    margin: 16px 0;
+  }
+
+  .audio-player {
+    padding: 24px 16px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    width: 350px;
+    background-color: hsla(var(--main-hsl), 0.2);
+    border: 2px solid #C5C5C5;
+    border-radius: 12px;
+    p {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    @include sm {
+      display: none;
+    }
   }
 </style>
